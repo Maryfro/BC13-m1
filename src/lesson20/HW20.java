@@ -2,22 +2,16 @@ package lesson20;
 
 public class HW20 {
     public static void main(String[] args) {
-     /*   cityWeather("Minsk", "Friday");
-        cityWeather("Lisbon", "Sunday");
-        cityWeather("Berlin", "Sunday");
+        cityWeather("Minsk", "Monday");
+        cityWeather("Lisbon", "Monday");
+        cityWeather("Berlin", "Tuesday");
         cityWeather("Paris", "Sunday");
         cityWeather("Moscow", "Sunday");
         cityWeather("London", "Sunday");
         cityWeather("Saratov", "Sunday");
-*/
-        cityWeather("Lisbon");
-        cityWeather("Paris");
-        cityWeather("Moscow");
-        cityWeather("Minsk");
-
     }
 
-    public static void cityWeather(String city) {
+    public static void cityWeather(String city, String day) {
         int degree = 0;
         switch (city) {
             case "Minsk":
@@ -29,8 +23,8 @@ public class HW20 {
             case "Berlin":
                 degree = 20;
                 break;
-           case "Paris":
-               degree = 23;
+            case "Paris":
+                degree = 23;
                 break;
             case "Moscow":
                 degree = 19;
@@ -44,20 +38,43 @@ public class HW20 {
             default:
                 System.out.println("invalid degree");
                 break;
+
         }
-        for (int i = 0; i < 7; i++) {
-            degree = degree + 1;
+        int j = 0;
+        switch (day) {
+            case "Monday":
+                j = 1;
+                break;
+            case "Tuesday":
+                j = 2;
+                break;
+            case "Wednesday":
+                j = 3;
+                break;
+            case "Thursday":
+                j = 4;
+                break;
+            case "Friday":
+                j = 5;
+                break;
+            case "Saturday":
+                j = 6;
+                break;
+            case "Sunday":
+                j = 7;
+                break;
+            default:
+                break;
+        }
+        for (int i = 1; i <= 7; i++) {
+            if (i == j) {
+                break;
+            } else {
+                degree = degree + 1;
+            }
         }
         System.out.println(degree);
-
     }
-
-   /* public static void checkWeather(String city, String day) {
-        cityWeather();
-        int degree = 0;
-        for (int i = 0; i < 7; i++) {
-            cityWeather() = cityWeather() + 1;
-            System.out.println(degree);*/
 }
 
 

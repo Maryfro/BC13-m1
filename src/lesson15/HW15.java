@@ -32,8 +32,6 @@ public class HW15 {
         System.out.println("-----------------------------------------");
         System.out.println(trimMethod("            I love java                       "));
 
-
-
     }
 
     public static boolean containsMethod(String one, CharSequence two) {
