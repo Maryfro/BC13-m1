@@ -9,7 +9,7 @@ public class PasswordGenerator {
 
     public static String genPass() {
         Scanner input = new Scanner(System.in);
-        System.out.println("How long will be you password? Enter the number of symbols");
+        System.out.println("How long will be your password? Enter the number of symbols");
         int passLength = input.nextInt();
         System.out.println("should your password contain only letters? Answer: true/false");
         boolean answer = input.nextBoolean();
