@@ -9,20 +9,23 @@ public class HW36CharArray {
 
     }
 
-    private static String[] createCharArray() {
-        String[] charArray = new String[33];
+    private static char[] createCharArray() {
+        char[] charArray = new char[33];
         String source = "А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я";
         source = source.replace(" ", "");
         for (int i = 0; i < charArray.length; i++) {
-            charArray[i] = String.valueOf(source.charAt(i));
+            charArray[i] = source.charAt(i);
         }
         return charArray;
     }
 
-    private static void makeRandomChars(String[] charArray) {
+    private static void makeRandomChars(char[] charArray) {
+        char[] result = new char[charArray.length];
         for (int i = 0; i < charArray.length; i++) {
-            charArray[i] = charArray[(int) (Math.random() * charArray.length)];
+            result[i] = charArray[(int) (Math.random() * charArray.length)];
+
         }
-        System.out.println(Arrays.toString(charArray));
+
+        System.out.println(Arrays.toString(result));
     }
 }
