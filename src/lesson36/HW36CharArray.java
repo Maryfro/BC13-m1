@@ -21,7 +21,7 @@ public class HW36CharArray {
 
     private static void makeRandomChars(String[] charArray) {
         for (int i = 0; i < charArray.length; i++) {
-            charArray[i] = charArray[(int) (Math.random() * 33)];
+            charArray[i] = charArray[(int) (Math.random() * charArray.length)];
         }
         System.out.println(Arrays.toString(charArray));
     }
