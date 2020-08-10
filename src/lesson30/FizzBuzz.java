@@ -10,27 +10,25 @@ public class FizzBuzz {
         System.out.println("--------------");
         fizzBuzz(1, 32);*/
         System.out.println(Arrays.toString(fizzBuzz(1, 6)));
+        System.out.println(Arrays.toString(fizzBuzz(15, 25)));
 
     }
 
     private static String[] fizzBuzz(int min, int max) {
-        String[] output = new String[max - min];
-        for (int i = 0; i < max - min; i++) {
-            if ((i) % 3 == 0 && (i) % 5 == 0) {
-                output[i] = "Fizzbuzz";
-                // System.out.println("Fizzbuzz");
-            } else if ((i) % 3 == 0) {
+        int range = max - min;
+        String[] output = new String[range];
+        for (int i = 0; i < range; i++) {
+            if (min % 3 == 0 && min % 5 == 0) {
+                output[i] = "FizzBuzz";
+            } else if (min % 3 == 0) {
                 output[i] = "Fizz";
-                // System.out.println("Fizz");
-            } else if ((i) % 5 == 0) {
+            } else if (min % 5 == 0) {
                 output[i] = "Buzz";
-                // System.out.println("Buzz");
             } else {
-                // System.out.println(i);
-                output[i] = String.valueOf(i);
+                output[i] = String.valueOf(min);
             }
+            min++;
         }
-
         return output;
     }
 }
