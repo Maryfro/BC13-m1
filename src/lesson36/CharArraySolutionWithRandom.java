@@ -3,7 +3,7 @@ package lesson36;
 import java.util.Arrays;
 import java.util.Random;
 
-public class HW36CharArray {
+public class CharArraySolutionWithRandom {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(createCharArray()));
         makeRandomChars(createCharArray());
@@ -21,12 +21,19 @@ public class HW36CharArray {
     }
 
     private static void makeRandomChars(char[] charArray) {
-        char[] result = new char[charArray.length];
+        Random random = new Random();
+        random.nextInt();
         for (int i = 0; i < charArray.length; i++) {
-            result[(int) (Math.random()  * charArray.length)] = charArray[i];
+            int change = i + random.nextInt(charArray.length - i);
+            swap(charArray, i, change);
         }
-        System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(charArray));
     }
 
+    private static void swap(char[] a, int i, int change) {
+        char temp = a[i];
+        a[i] = a[change];
+        a[change] = temp;
+    }
 }
 
