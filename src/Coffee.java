@@ -1,4 +1,4 @@
-package lesson07;
+
 
 public class Coffee {
     private static void milk(int ml) {
