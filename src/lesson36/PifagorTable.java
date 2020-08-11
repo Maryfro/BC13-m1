@@ -5,7 +5,7 @@ public class PifagorTable {
         printTwoDimensionalArray(createMT(10));
     }
 
-    private static void printTwoDimensionalArray(int[][] array) {
+    public static void printTwoDimensionalArray(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 //System.out.print(array[i][j] + " ");
