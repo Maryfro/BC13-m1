@@ -1,13 +1,13 @@
 package lesson36;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class HW36CharArray {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(createCharArray()));
-        makeRandomChars(createCharArray());
-
+        char[] newCyrillicArray = createCharArray();
+        System.out.println(Arrays.toString(newCyrillicArray));
+        char[] shakeArray = makeRandomChars(newCyrillicArray);
+        System.out.println(Arrays.toString(shakeArray));
     }
 
     private static char[] createCharArray() {
@@ -20,12 +20,17 @@ public class HW36CharArray {
         return charArray;
     }
 
-    private static void makeRandomChars(char[] charArray) {
-        char[] result = new char[charArray.length];
-        for (int i = 0; i < charArray.length; i++) {
-            result[(int) (Math.random()  * charArray.length)] = charArray[i];
+    private static char[] makeRandomChars(char[] arrayToShake) {
+        char[] result = new char[arrayToShake.length];
+        for (int i = 0; i < arrayToShake.length; i++) {
+            int random = (int) (Math.random() * arrayToShake.length);
+            while (result[random] != 0) {
+                random = (int) (Math.random() * arrayToShake.length);
+            }
+            result[random] = arrayToShake[i];
         }
-        System.out.println(Arrays.toString(result));
+
+        return result;
     }
 
 }
