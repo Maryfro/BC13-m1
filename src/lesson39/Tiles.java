@@ -10,12 +10,15 @@ public class Tiles {
         double tileWidth = 20.0;
         double workingHour = 27.0;
         double tilePrice = 1.0;
-        double floorLength = 3.0;
-        double floorWidth = 6.0;
+        double floorLength = 7.5;
+        double floorWidth = 5.5;
         double meterPerHour = 1.0;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-        double quantity = tileQuantity(tileLength, tileWidth, floorLength, floorWidth);
-        System.out.println("you need " + quantity + " tiles");
+        int quantity = tileQuantity(tileLength, tileWidth, floorLength, floorWidth);
+        System.out.println("you need " + quantity + " full tiles");
+        int partsOfTiles = partsOfTiles(tileLength, tileWidth, floorLength, floorWidth);
+        System.out.println("you need " + partsOfTiles + " part tiles");
+        System.out.println("you need " + totalTiles(quantity, partsOfTiles) + " in total");
         double priceWork = priceWork(workingHour, floorLength, floorWidth, meterPerHour);
         double priceMaterial = priceMaterial(tilePrice, quantity);
         System.out.println("price for material is " + priceMaterial + " €");
@@ -23,13 +26,30 @@ public class Tiles {
         System.out.println("total price is " + totalPrice(priceWork, priceMaterial) + " €");
     }
 
-    private static double tileQuantity(double tileLength, double tileWidth, double floorLength, double floorWidth) {
-        double quantity;
+
+    private static int tileQuantity(double tileLength, double tileWidth, double floorLength, double floorWidth) {
+        int quantity;
         floorLength = floorLength * 100;
         floorWidth = floorWidth * 100;
-        quantity = (floorLength * floorWidth) / (tileLength * tileWidth);
+        int quantityLength = (int) (floorLength / tileLength);
+        int quantityWidth = (int) (floorWidth / tileWidth);
+        quantity = quantityLength * quantityWidth;
         return quantity;
     }
+
+    private static int partsOfTiles(double tileLength, double tileWidth, double floorLength, double floorWidth) {
+        floorLength = floorLength * 100;
+        floorWidth = floorWidth * 100;
+        int quantityPartsLength = (int) (floorLength % tileLength);
+        int quantityPartsWidth = (int) (floorWidth % tileWidth);
+        if (quantityPartsLength > quantityPartsWidth) return quantityPartsLength;
+        return quantityPartsWidth;
+    }
+
+    private static int totalTiles(int quantity, int partsOfTiles) {
+        return quantity + partsOfTiles;
+    }
+
 
     private static double priceWork(double workingHour, double floorLength, double floorWidth, double meterPerHour) {
         return meterPerHour * workingHour * floorLength * floorWidth;
