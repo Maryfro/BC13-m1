@@ -2,43 +2,25 @@ package lesson39;
 
 public class Tiles {
     public static void main(String[] args) {
-        // 1 working hour = 27€
-        // 1 tile = 30*20 cm;
-        // 1 hour = 1 m²;
-        // размеры стены/пола, стоимость плитки
+        customerInquiry();
+    }
+
+    private static void customerInquiry() {
         double tileLength = 30.0;
         double tileWidth = 20.0;
         double workingHour = 27.0;
         double tilePrice = 1.0;
-        customerQuestion();
-        //System.out.println(tileQuantity(30, 20, 3, 6));
-    }
-
-    private static void customerQuestion() {
-        double tileLength = 30.0;
-        double tileWidth = 20.0;
-        //tileQuantity();
-        double quantity = tileQuantity(30.0, 20.0, 3.0, 6.0);
-        priceMaterial(1.0);
-        priceWork(27.0, 3.0, 6.0);
-        totalPrice(486.0, 300.0);
-
-    }
-
-    private static double totalPrice(double priceWork, double priceMaterial) {
-        priceWork = priceWork(27.0, 3.0, 6.0);
-        priceMaterial = priceMaterial(1.0);
-        return priceWork + priceMaterial;
-    }
-
-    private static double priceWork(double workingHour, double floorLength, double floorWidth) {
-        double hour = 1.0;
-        return hour * workingHour * floorLength * floorWidth;
-    }
-
-    private static double priceMaterial(double tilePrice) {
-        double quantity = tileQuantity(30.0, 20.0, 3.0, 6.0);
-        return quantity * tilePrice;
+        double floorLength = 3.0;
+        double floorWidth = 6.0;
+        double meterPerHour = 1.0;
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+        double quantity = tileQuantity(tileLength, tileWidth, floorLength, floorWidth);
+        System.out.println("you need " + quantity + " tiles");
+        double priceWork = priceWork(workingHour, floorLength, floorWidth, meterPerHour);
+        double priceMaterial = priceMaterial(tilePrice, quantity);
+        System.out.println("price for material is " + priceMaterial + " €");
+        System.out.println("price for work is " + priceWork + " €");
+        System.out.println("total price is " + totalPrice(priceWork, priceMaterial) + " €");
     }
 
     private static double tileQuantity(double tileLength, double tileWidth, double floorLength, double floorWidth) {
@@ -47,6 +29,18 @@ public class Tiles {
         floorWidth = floorWidth * 100;
         quantity = (floorLength * floorWidth) / (tileLength * tileWidth);
         return quantity;
+    }
+
+    private static double priceWork(double workingHour, double floorLength, double floorWidth, double meterPerHour) {
+        return meterPerHour * workingHour * floorLength * floorWidth;
+    }
+
+    private static double priceMaterial(double tilePrice, double quantity) {
+        return quantity * tilePrice;
+    }
+
+    private static double totalPrice(double priceWork, double priceMaterial) {
+        return priceWork + priceMaterial;
     }
 
 
