@@ -10,8 +10,7 @@ public class CocktailSortByte {
         //System.out.println(Arrays.toString(copyB));
         byte[] bubbleArray = bubbleSort(copyB);
         System.out.println("bubble sort" + Arrays.toString(bubbleArray));
-        byte[] copyB2 = makeCopy(b);
-        System.out.println("cocktail sort" + Arrays.toString(cocktailSort(copyB2)));
+        System.out.println("cocktail sort" + Arrays.toString(cocktailSort(b)));
     }
 
     private static byte[] cocktailSort(byte[] copyB2) {
