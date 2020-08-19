@@ -12,19 +12,19 @@ public class maxSpan {
         System.out.println(maxSpan(b3));
     }
 
-    private static int maxSpan(int[] array) {
+    private static int maxSpan(int[] input) {
         int span;
-        int[] arr = new int[array.length];
+        int[] output = new int[input.length];
         for (int i = 0; i < i + 1; i++) {
-            for (int j = i; j < array.length; j++) {
-                if (array[i] == array[j]) {
+            for (int j = i; j < input.length; j++) {
+                if (input[i] == input[j]) {
                     span = j - i + 1;
-                    arr[i] = span;
+                    output[i] = span;
                 }
             }
         }
-        int result = arr[0];
-        for (int j : arr) {
+        int result = output[0];
+        for (int j : output) {
             result = Math.max(result, j);
         }
         return result;
