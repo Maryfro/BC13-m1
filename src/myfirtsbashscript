@@ -1,0 +1,10 @@
+#!/bin/bash
+USER=Maria
+MYVAR=Hello
+ date
+echo $MYVAR $USER
+pwd
+ps -ef | tail +2 | wc -l
+ps -ef | grep bioset | grep -v 'grep bioset' | wc -l
+ls -la /etc/passwd | awk '{print$1}'
+touch {1..100}.txt
