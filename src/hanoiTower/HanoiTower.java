@@ -21,7 +21,6 @@ public class HanoiTower {
         System.out.println(Arrays.toString(c));
         System.out.println("----------------------");
         towerOfHanoi('A', 'B', 'C', 4);
-
     }
 
     private static int[] createHanoiTower(int[] a, int[] b, int[] c, int disks) {
