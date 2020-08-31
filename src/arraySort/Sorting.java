@@ -13,7 +13,7 @@ public class Sorting {
         System.out.println("Коктейльная сортировка " + Arrays.toString(cocktailSort(newArray1)));
     }
 
-    private static int[] cocktailSort(int[] array) {
+    public static int[] cocktailSort(int[] array) {
         int count = 0;
         int start = 0;
         int end = array.length - 1;
